@@ -58,6 +58,7 @@ module OmniAuth
             :uids         => uid,
             :fields       => fields.join(','),
             :access_token => access_token.token,
+            headers: {"Accept-Language" => "ru"}
           }
 
           result = access_token.post('/method/users.get', :params => params).parsed["response"]
