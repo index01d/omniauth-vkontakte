@@ -57,11 +57,10 @@ module OmniAuth
           params = {
             :uids         => uid,
             :fields       => fields.join(','),
-            :access_token => access_token.token,
-            headers: {"Accept-Language" => "ru"}
+            :access_token => access_token.token
           }
 
-          result = access_token.post('/method/users.get', :params => params).parsed["response"]
+          result = access_token.post('/method/users.get', :params => params, headers: {"Accept-Language" => "ru"}).parsed["response"]
           result && result.first ? result.first : nil
         end
       end
